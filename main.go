@@ -11,6 +11,7 @@ import (
 
 	"github.com/sensu/sensu-go/types"
 	"github.com/spf13/cobra"
+//	"github.com/sfreiberg/gotwilio"
 )
 
 //Declare our variable types here
@@ -103,7 +104,7 @@ func run(cmd *cobra.Command, args []string) error {
 		return fmt.Errorf("event does not contain check")
 	}
 
-	return nil
+	return sendText(event)
 }
 
 func sendText(event *types.Event) error {
@@ -112,7 +113,7 @@ func sendText(event *types.Event) error {
 	urlStr := "https://api.twilio.com/2010-04-01/Accounts/" + accountSid + "/Messages.json"
 
 	//Set up our message we want to send
-	msg := "Sensu alert for" + event.Check.Name + "on" + event.Entity.Name + ". Check output:" +  event.Check.Output
+	msg := "Sensu alert for " + event.Check.Name + " on " + event.Entity.Name + ". Check output: " +  event.Check.Output
 
 	//Set up our message data
 	msgData := url.Values{}
