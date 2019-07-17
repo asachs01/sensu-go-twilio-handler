@@ -43,7 +43,7 @@ func configureRootCommand() *cobra.Command {
 		"accountSid",
 		"s",
 		os.Getenv("TWILIO_ACCOUNT_SID"),
-		"The account SID for your Twilio account. Uses the environment variable TWILIO_ACCOUNT_SID by default.")
+		"The account SID for your Twilio account, uses the environment variable TWILIO_ACCOUNT_SID by default")
 
 	_ = cmd.MarkFlagRequired("accountSid")
 
@@ -51,7 +51,7 @@ func configureRootCommand() *cobra.Command {
 		"authToken",
 		"t",
 		os.Getenv("TWILIO_AUTH_TOKEN"),
-		"The authorization token for your Twilio account. Uses the environment variable TWILIO_AUTH_TOKEN by default.")
+		"The authorization token for your Twilio account, uses the environment variable TWILIO_AUTH_TOKEN by default")
 
 	_ = cmd.MarkFlagRequired("authToken")
 
@@ -112,13 +112,13 @@ func sendText(event *types.Event) error {
 	urlStr := "https://api.twilio.com/2010-04-01/Accounts/" + accountSid + "/Messages.json"
 
 	//Set up our message we want to send
-	msg := event.Check.Output
+	msg := "Sensu alert for" + event.Check.Name + "on" + event.Entity.Name + ". Check output:" +  event.Check.Output
 
 	//Set up our message data
 	msgData := url.Values{}
-	msgData.Set("To", recipient)
-	msgData.Set("From", fromNumber)
-	msgData.Set("Body", msg)
+	msgData.Set("To",recipient)
+	msgData.Set("From",fromNumber)
+	msgData.Set("Body",msg)
 	msgDataReader := *strings.NewReader(msgData.Encode())
 
 	//Create the HTTP request client
@@ -139,6 +139,5 @@ func sendText(event *types.Event) error {
 	} else {
 		fmt.Println(resp.Status)
 	}
-
 	return nil
 }
