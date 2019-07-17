@@ -161,7 +161,6 @@ You should then receive a message to your phone with the output of the error.
 Support for this asset is as follows:
 
 * Linux 64 bit
-* Linux 32 bit
 * Arm 64 bit
 
 This is mostly due to the fact that this plugin is a handler. If you have the Sensu Go backend running on a different platform, [open an issue](https://github.com/asachs01/sensu-go-twilio-handler/issues/new) and provide some further details about the platform you'd like to see supported.
