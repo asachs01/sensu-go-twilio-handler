@@ -74,6 +74,7 @@ go build -o /usr/local/bin/sensu-go-twilio-handler main.go
 ## Configuration
 
 Example Sensu Go definition:
+
 **JSON**
 ```json
 {
