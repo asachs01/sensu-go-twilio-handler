@@ -58,7 +58,7 @@ spec:
   - entity.system.arch == 'amd64'
 ```
 
-**NOTE**: PLEASE ENSURE YOU UPDATE YOUR URL AND SHA512 BEFORE USING THE ASSET. If you don't, you might just be stuck on a super old version. Don't say I didn't warn you ¯\_(ツ)_/¯
+**NOTE**: PLEASE ENSURE YOU UPDATE YOUR URL AND SHA512 BEFORE USING THE ASSET. If you don't, you might just be stuck on a super old version. Don't say I didn't warn you ¯\\_(ツ)_/¯
 
 ### Building from source
 
@@ -153,9 +153,7 @@ Run the following command:
 cat example-event.json | ./sensu-go-twilio-handler  -s ACCTSIDXXXXXXXXXXXX -t AUTHTOKENXXXXXXXXXX  -f +18558675309 -r +18559990210
 ```
 
-You should receive a message to your phone with the output of the error--it should look something like this:
-
-
+You should then receive a message to your phone with the output of the error.
 
 ## Contributing
 
