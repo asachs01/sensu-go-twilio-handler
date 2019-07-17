@@ -4,14 +4,11 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
-	"net/http"
-	"net/url"
 	"os"
-	"strings"
 
 	"github.com/sensu/sensu-go/types"
+	"github.com/sfreiberg/gotwilio"
 	"github.com/spf13/cobra"
-//	"github.com/sfreiberg/gotwilio"
 )
 
 //Declare our variable types here
@@ -104,41 +101,19 @@ func run(cmd *cobra.Command, args []string) error {
 		return fmt.Errorf("event does not contain check")
 	}
 
-	return sendText(event)
+	return sendSMS(event)
 }
 
-func sendText(event *types.Event) error {
-
-	//Set our API URL
-	urlStr := "https://api.twilio.com/2010-04-01/Accounts/" + accountSid + "/Messages.json"
+func sendSMS(event *types.Event) error {
 
 	//Set up our message we want to send
-	msg := "Sensu alert for " + event.Check.Name + " on " + event.Entity.Name + ". Check output: " +  event.Check.Output
+	message := "Sensu alert for " + event.Check.Name + " on " + event.Entity.Name + ". Check output: " + event.Check.Output
 
-	//Set up our message data
-	msgData := url.Values{}
-	msgData.Set("To",recipient)
-	msgData.Set("From",fromNumber)
-	msgData.Set("Body",msg)
-	msgDataReader := *strings.NewReader(msgData.Encode())
+	//Set up a Twilio client
+	twilio := gotwilio.NewTwilioClient(accountSid, authToken)
 
-	//Create the HTTP request client
-	client := &http.Client{}
-	req, _ := http.NewRequest("POST", urlStr, &msgDataReader)
-	req.SetBasicAuth(accountSid, authToken)
-	req.Header.Add("Accept", "application/json")
-	req.Header.Add("Content-Type", "application/x-www-form-urlencoded")
+	//Send our
+	twilio.SendSMS(fromNumber, recipient, message, "", "")
 
-	resp, _ := client.Do(req)
-	if resp.StatusCode >= 200 && resp.StatusCode < 300 {
-		var data map[string]interface{}
-		decoder := json.NewDecoder(resp.Body)
-		err := decoder.Decode(&data)
-		if err == nil {
-			fmt.Println(data["sid"])
-		}
-	} else {
-		fmt.Println(resp.Status)
-	}
 	return nil
 }
