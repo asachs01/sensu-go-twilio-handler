@@ -156,6 +156,16 @@ cat example-event.json | ./sensu-go-twilio-handler  -s ACCTSIDXXXXXXXXXXXX -t AU
 
 You should then receive a message to your phone with the output of the error.
 
+## Supported operating systems
+
+Support for this asset is as follows:
+
+* Linux 64 bit
+* Linux 32 bit
+* Arm 64 bit
+
+This is mostly due to the fact that this plugin is a handler. If you have the Sensu Go backend running on a different platform, [open an issue](https://github.com/asachs01/sensu-go-twilio-handler/issues/new) and provide some further details about the platform you'd like to see supported.
+
 ## Contributing
 
 See https://github.com/sensu/sensu-go/blob/master/CONTRIBUTING.md
