@@ -14,7 +14,7 @@ Once you have all of the above, you should be all set to use this handler. Read 
 
 ### As an asset
 
-Assets are the best way to make use of this handler. If you're not using an asset, please consider doing so! You can find this asset on the[Bonsai Asset Index](https://bonsai.sensu.io/assets/asachs01/sensu-go-twilio-handler).
+Assets are the best way to make use of this handler. If you're not using an asset, please consider doing so! You can find this asset on the [Bonsai Asset Index](https://bonsai.sensu.io/assets/asachs01/sensu-go-twilio-handler).
 
 You can download the asset definition there, or you can do a little bit of copy/pasta and use the one below:
 
