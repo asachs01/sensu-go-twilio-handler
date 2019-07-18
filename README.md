@@ -156,6 +156,8 @@ cat example-event.json | ./sensu-go-twilio-handler  -s ACCTSIDXXXXXXXXXXXX -t AU
 
 You should then receive a message to your phone with the output of the error.
 
+![twilio alert screenshot](http://share.sachshaus.net/7214b322fe11/Webp.net-resizeimage.png)
+
 ## Supported operating systems
 
 Support for this asset is as follows:
