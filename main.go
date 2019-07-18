@@ -104,15 +104,16 @@ func run(cmd *cobra.Command, args []string) error {
 	return sendSMS(event)
 }
 
+//This function will send an SMS when receive an alert in error state.
 func sendSMS(event *types.Event) error {
 
 	//Set up our message we want to send
 	message := "Sensu alert for " + event.Check.Name + " on " + event.Entity.Name + ". Check output: " + event.Check.Output
 
-	//Set up a Twilio client
+	//Set up a Twilio client with our accountSid & authToken
 	twilio := gotwilio.NewTwilioClient(accountSid, authToken)
 
-	//Send our
+	//Send our message to our recipient
 	twilio.SendSMS(fromNumber, recipient, message, "", "")
 
 	return nil
