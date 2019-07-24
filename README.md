@@ -12,7 +12,20 @@ Once you have all of the above, you should be all set to use this handler. Read 
 
 ## Installation
 
-### As an asset
+### Building from source
+
+While it's generally recommended to use an asset, you can download a copy of the handler plugin from [releases][1],
+or create an executable script from this source.
+
+From the local path of the sensu-go-twilio-handler repository:
+
+```
+go build -o /usr/local/bin/sensu-go-twilio-handler main.go
+```
+
+## Configuration
+
+### Asset Registration
 
 Assets are the best way to make use of this handler. If you're not using an asset, please consider doing so! You can find this asset on the [Bonsai Asset Index](https://bonsai.sensu.io/assets/asachs01/sensu-go-twilio-handler).
 
@@ -59,19 +72,6 @@ spec:
 ```
 
 **NOTE**: PLEASE ENSURE YOU UPDATE YOUR URL AND SHA512 BEFORE USING THE ASSET. If you don't, you might just be stuck on a super old version. Don't say I didn't warn you ¯\\_(ツ)_/¯
-
-### Building from source
-
-While it's generally recommended to use an asset, you can download a copy of the handler plugin from [releases][1],
-or create an executable script from this source.
-
-From the local path of the sensu-go-twilio-handler repository:
-
-```
-go build -o /usr/local/bin/sensu-go-twilio-handler main.go
-```
-
-## Configuration
 
 Example Sensu Go definition:
 
@@ -124,7 +124,9 @@ spec:
 
 ## Usage Examples
 
-Help:
+While this handler is meant to be run as part of a Sensu Go deployment, you can always run the binary directly to see what the options are, as well as test it to ensure that it work as expected. 
+
+### Command line help
 
 ```text
 The Sensu Go Handler for Twilio
@@ -140,7 +142,7 @@ Flags:
   -h, --help                 help for sensu-go-twilio-handler
 ```
 
-## Testing
+### Testing
 
 To test and see if this handler works, do the following:
 
@@ -157,6 +159,10 @@ cat example-event.json | ./sensu-go-twilio-handler  -s ACCTSIDXXXXXXXXXXXX -t AU
 You should then receive a message to your phone with the output of the error.
 
 ![twilio alert screenshot](http://share.sachshaus.net/7214b322fe11/Webp.net-resizeimage.png)
+
+### Using the handler with one or more contacts
+
+
 
 ## Supported operating systems
 
