@@ -162,7 +162,7 @@ You should then receive a message to your phone with the output of the error.
 
 ### Using the handler with one or more contacts
 
-
+It is possible to use this plugin with multiple contacts, rather than a single number. This pattern is what is known in Sensu parlance as "contact routing." More will be added here as Sensu documentation is updated to more accurately describe this pattern.
 
 ## Supported operating systems
 
