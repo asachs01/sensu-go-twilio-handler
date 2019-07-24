@@ -73,6 +73,8 @@ spec:
 
 **NOTE**: PLEASE ENSURE YOU UPDATE YOUR URL AND SHA512 BEFORE USING THE ASSET. If you don't, you might just be stuck on a super old version. Don't say I didn't warn you ¯\\_(ツ)_/¯
 
+### Handler Configuration
+
 Example Sensu Go definition:
 
 **JSON**
