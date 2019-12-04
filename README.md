@@ -160,7 +160,7 @@ cat example-event.json | ./sensu-go-twilio-handler  -s ACCTSIDXXXXXXXXXXXX -t AU
 
 You should then receive a message to your phone with the output of the error.
 
-![twilio alert screenshot](http://share.sachshaus.net/7214b322fe11/Webp.net-resizeimage.png)
+![twilio alert screenshot](https://p299.p4.n0.cdn.getcloudapp.com/items/5zuJew4X/Screenshot_20190717-232020.png?v=f0244404f5516401e54d2ab64df1533d)
 
 ### Using the handler with one or more contacts
 
