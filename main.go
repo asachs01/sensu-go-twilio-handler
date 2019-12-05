@@ -43,15 +43,11 @@ func configureRootCommand() *cobra.Command {
 		os.Getenv("TWILIO_ACCOUNT_SID"),
 		"The account SID for your Twilio account, uses the environment variable TWILIO_ACCOUNT_SID by default")
 
-	_ = cmd.MarkFlagRequired("accountSid")
-
 	cmd.Flags().StringVarP(&authToken,
 		"authToken",
 		"t",
 		os.Getenv("TWILIO_AUTH_TOKEN"),
 		"The authorization token for your Twilio account, uses the environment variable TWILIO_AUTH_TOKEN by default")
-
-	_ = cmd.MarkFlagRequired("authToken")
 
 	cmd.Flags().StringVarP(&fromNumber,
 		"fromNumber",
