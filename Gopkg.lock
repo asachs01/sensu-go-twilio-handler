@@ -56,6 +56,22 @@
   version = "v1.2.0"
 
 [[projects]]
+  digest = "1:a63cff6b5d8b95638bfe300385d93b2a6d9d687734b863da8e09dc834510a690"
+  name = "github.com/google/go-querystring"
+  packages = ["query"]
+  pruneopts = "UT"
+  revision = "44c6ddd0a2342c386950e880b658017258da92fc"
+  version = "v1.0.0"
+
+[[projects]]
+  digest = "1:345ad428d03cc89fa5498d61383d0d7f39afbe8731ca135c0ec92782285121d3"
+  name = "github.com/gorilla/schema"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "124d17ef95858a10835ce95502446cb5a9e9f715"
+  version = "v1.1.0"
+
+[[projects]]
   digest = "1:870d441fe217b8e689d7949fef6e43efbc787e50f200cb1e70dbca9204a1d6be"
   name = "github.com/inconshreveable/mousetrap"
   packages = ["."]
@@ -104,6 +120,14 @@
   ]
   pruneopts = "UT"
   revision = "2daf9d442deec0afd2c6f53c183460e879a10646"
+
+[[projects]]
+  branch = "master"
+  digest = "1:203f8e16e575a9f93cb579ebfdd43f0dbc2834087b1ebf6ae218ee176136c909"
+  name = "github.com/sfreiberg/gotwilio"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "38187998ae525f81eef00a36c563682748b18159"
 
 [[projects]]
   digest = "1:645cabccbb4fa8aab25a956cbcbdf6a6845ca736b2c64e197ca7cbb9d210b939"
@@ -232,6 +256,7 @@
   analyzer-version = 1
   input-imports = [
     "github.com/sensu/sensu-go/types",
+    "github.com/sfreiberg/gotwilio",
     "github.com/spf13/cobra",
   ]
   solver-name = "gps-cdcl"
