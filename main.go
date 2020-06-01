@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"strings"
 	"io/ioutil"
 	"os"
 
@@ -16,7 +17,7 @@ var (
 	accountSid string
 	authToken  string
 	fromNumber string
-	recipient  string
+	recipients  string
 	stdin      *os.File
 )
 
@@ -57,13 +58,13 @@ func configureRootCommand() *cobra.Command {
 
 	_ = cmd.MarkFlagRequired("fromNumber")
 
-	cmd.Flags().StringVarP(&recipient,
-		"recipient",
+	cmd.Flags().StringVarP(&recipients,
+		"recipients",
 		"r",
 		"",
-		"The recipient's phone number")
+		"The recipient phone number(s), separated by comma")
 
-	_ = cmd.MarkFlagRequired("recipient")
+	_ = cmd.MarkFlagRequired("recipients")
 
 	return cmd
 }
@@ -109,8 +110,11 @@ func sendSMS(event *types.Event) error {
 	//Set up a Twilio client with our accountSid & authToken
 	twilio := gotwilio.NewTwilioClient(accountSid, authToken)
 
-	//Send our message to our recipient
-	twilio.SendSMS(fromNumber, recipient, message, "", "")
+	recipients := strings.Split(recipients, ",")
+	for i := range recipients {
+		//Send our message to our recipients
+		twilio.SendSMS(fromNumber, recipients[i], message, "", "")
+	}
 
 	return nil
 }
