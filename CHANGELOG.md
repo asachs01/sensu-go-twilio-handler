@@ -7,7 +7,7 @@ Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## Unreleased
 
-### Issue #3 Proposed change
+## 1.0.2 - 2020-10-06
 
 - Adds logic to allow multiple recipients
 
