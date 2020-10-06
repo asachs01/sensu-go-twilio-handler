@@ -40,7 +40,7 @@ Flags:
   -s, --accountSid  string   The account SID for your Twilio account, uses the environment variable TWILIO_ACCOUNT_SID by default
   -t, --authToken   string   The authorization token for your Twilio account, uses the environment variable TWILIO_AUTH_TOKEN by default
   -f, --fromNumber  string   Your Twilio phone number
-  -r, --recipient   string   The recipient's phone number
+  -r, --recipients  string   The recipient phone number(s), separated by commas
   -h, --help                 help for sensu-go-twilio-handler
 ```
 
